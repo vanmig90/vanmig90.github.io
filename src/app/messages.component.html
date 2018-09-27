@@ -1,0 +1,35 @@
+
+      <mat-table [dataSource]="messages">
+
+        
+           <!-- Message Column -->
+    <ng-container matColumnDef="message">
+        <mat-header-cell *matHeaderCellDef> Message </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.message}} </mat-cell>
+      </ng-container>
+  
+      <!-- Posted By Column -->
+      <ng-container matColumnDef="postedBy">
+        <mat-header-cell *matHeaderCellDef> Posted By </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.postedBy}} </mat-cell>
+      </ng-container>
+  
+      <!-- Posted At Column -->
+      <ng-container matColumnDef="postedAt">
+        <mat-header-cell *matHeaderCellDef> Posted At </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.postedAt}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+
+        <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+
+  
+  
